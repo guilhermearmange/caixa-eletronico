@@ -21,7 +21,7 @@ public class CommandLineAppStartupRunner implements CommandLineRunner {
 	}
     
     @Override
-    public void run(String...args) throws Exception {
+    public void run(String...args) {
     	if(args.length != 0) {
     		System.out.println("===============================================");
     		Arrays.stream(args).map(valor -> new Integer(valor)).forEach(this::sacar);
@@ -32,7 +32,7 @@ public class CommandLineAppStartupRunner implements CommandLineRunner {
     private void sacar(Integer valor) {
     	System.out.println("\nSacando o valor de: " + valor);
     	try {
-    		List<Integer> notas = service.sacar(valor).stream().map(nota -> nota.getValor()).collect(toList());
+    		List<Integer> notas = service.sacar(valor).stream().map(nota -> nota.getTipo().getValor()).collect(toList());
 			System.out.println("Notas: " + notas);
     	} catch (Exception e) {
 			System.out.println("Não foi possivel concluir o saque devido ao motivo: " + e.getMessage());

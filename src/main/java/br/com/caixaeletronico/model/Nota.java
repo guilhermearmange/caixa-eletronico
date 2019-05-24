@@ -5,19 +5,19 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 public class Nota {
-	
-	private Integer valor;
-	
-	public Nota(Integer valor) {
-		this.valor = valor;
+
+	private TipoNotaEnum tipo;
+
+	public Nota(TipoNotaEnum tipo) {
+		this.tipo = tipo;
 	}
 
-	public Integer getValor() {
-		return valor;
+	public TipoNotaEnum getTipo() {
+		return tipo;
 	}
 
-	public void setValor(Integer valor) {
-		this.valor = valor;
+	public void setTipo(TipoNotaEnum tipo) {
+		this.tipo = tipo;
 	}
 
 	@Override
@@ -26,17 +26,17 @@ public class Nota {
 			return false;
 		}
 		Nota castOther = (Nota) other;
-		return new EqualsBuilder().append(valor, castOther.valor).isEquals();
+		return new EqualsBuilder().append(tipo, castOther.tipo).isEquals();
 	}
 
 	@Override
 	public int hashCode() {
-		return new HashCodeBuilder().append(valor).toHashCode();
+		return new HashCodeBuilder().append(tipo).toHashCode();
 	}
 
 	@Override
 	public String toString() {
-		return new ToStringBuilder(this).append("valor", valor).toString();
+		return new ToStringBuilder(this).append("tipo", tipo).toString();
 	}
-	
+
 }
